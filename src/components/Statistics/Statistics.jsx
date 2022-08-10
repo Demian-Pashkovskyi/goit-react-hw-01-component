@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import st from './Statistics.module.css';
+import { Sections,StatTitle ,StatsList,StatsItem,StatlLabel,PercentRating} from './StatisticsStyled';
 
 
 export const Statistics = ({ title, stats }) => (
-	<section className={st.statistics}>
-		{title && <h2 className={st.title}>{title}</h2>}
-		<ul className={st.list}>
+	<Sections>
+		<StatTitle>{title}</StatTitle>
+		<StatsList>
 			{stats.map(stat => (
-				<li key={stat.id} className={st.item} style={{
+				<StatsItem key={stat.id} style={{
 					backgroundColor: getRGB(),
-					width: `calc(100%/${stats.length})`,
+					width: `calc(100%/${stats.length})`
 				}}>
-					<span className={st.label}>{stat.label}</span>
-        	<span className={st.percentage}>{stat.percentage}%</span>
-				</li>
+					<StatlLabel>{stat.label}</StatlLabel>
+        	<PercentRating>{stat.percentage}%</PercentRating>
+				</StatsItem>
 			))}
-		</ul>
-	</section>
+		</StatsList>
+	</Sections>
 )
 
 Statistics.propTypes = {

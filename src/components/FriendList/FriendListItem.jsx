@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import st from './FriendList.module.css';
+import { FriendItem ,IsOnline,IsOffline,FriendAvatar,FriendName} from './FriendListStyled';
 
 export const FriendListItem = ({ friends }) => {
   return friends.map((friend) => (
-		<li className={st.item} key={friend.id}>
-			<span className={friend.isOnline ? st.isOnline : st.isOffline}>{friend.isOnline}</span>
-			<img className={st.avatar} src={friend.avatar} alt="User avatar" width="48" />
-			<p className={st.name}>{friend.name}</p>
-		</li>
+		<FriendItem key={friend.id}>
+			{friend.isOnline ? <IsOnline /> : <IsOffline />}
+			<FriendAvatar src={friend.avatar} alt="User avatar" width="48" />
+			<FriendName>{friend.name}</FriendName>
+		</FriendItem>
 	));
 };
 

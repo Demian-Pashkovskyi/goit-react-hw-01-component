@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import st from './FriendList.module.css';
+import { FriendsList } from './FriendListStyled';
 import { FriendListItem } from './FriendListItem';
 
 export const FriendList = ({ friends }) => {
   return (
-		<ul className={st.list}>
+		<FriendsList>
 			<FriendListItem friends={friends} />
-		</ul>
+		</FriendsList>
 	)
 }
 

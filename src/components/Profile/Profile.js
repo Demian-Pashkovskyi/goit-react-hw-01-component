@@ -1,34 +1,54 @@
+import React from "react";
 import PropTypes from 'prop-types';
-import st from './Profile.module.css';
+import { ProfilFoto,ProfilName,ProfilInfo,ProfilLocation,Stats,StatsList,UserInfo,StatsQuantity } from './ProfileStyled';
+import { Box } from "components/Box";
 
 export const Profile = ({ username, tag, location, avatar, stats }) => {
-	return <div className={st.profile}>
-  <div className={st.description}>
-    <img
+	return <Box width={320}
+	display="flex"
+	flexDirection="column"
+	alignItems="center"
+	ml="auto"
+	mr="auto"
+	mt="45px"
+	pt="25px"
+	boxShadow="custom"
+	radii="round"
+	// border-radius="normal"
+	border-radius="2px">
+	<Box display="flex"
+      flexDirection="column"
+    alignItems="center"
+		transform="scale(1.1)"
+		border-radius="normal"
+		radii="normal"
+		>
+    <ProfilFoto
       src={avatar}
       alt="User avatar"
-      className={st.avatar}
     />
-    <p className={st.name}>{username}</p>
-    <p className={st.tag}>@{tag}</p>
-    <p className={st.location}>{location}</p>
-  </div>
+    <ProfilName>{username}</ProfilName>
+    <ProfilInfo>@{tag}</ProfilInfo>
+    <ProfilLocation>{location}</ProfilLocation>
+  </Box>
+	
+  
 
-  <ul className={st.stats}>
-    <li>
-      <span className={st.label}>Followers</span>
-      <span className={st.quantity}>{stats.followers}</span>
-    </li>
-    <li>
-      <span className={st.label}>Views</span>
-      <span className={st.quantity}>{stats.views}</span>
-    </li>
-    <li>
-      <span className={st.label}>Likes</span>
-      <span className={st.quantity}>{stats.likes}</span>
-    </li>
-  </ul>
-</div>
+  <Stats>
+    <StatsList>
+      <UserInfo>Followers</UserInfo>
+      <StatsQuantity>{stats.followers}</StatsQuantity>
+    </StatsList>
+    <StatsList>
+      <UserInfo>Views</UserInfo>
+      <StatsQuantity>{stats.views}</StatsQuantity>
+    </StatsList>
+    <StatsList>
+      <UserInfo>Likes</UserInfo>
+      <StatsQuantity>{stats.likes}</StatsQuantity>
+    </StatsList>
+  </Stats>
+</Box>
 };
 
 

@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
-import st from './TransactionHistory.module.css';
+import { Table, Thead, TableTitle } from './TransactionHistoryStyled';
 import { TransactionHistoryItems } from './TransactionItems';
 
 export const TransactionHistory = ({ transactions }) => {
 	return (
-		<table className={st.transactionTbl}>
-			<thead className={st.heder}>
-				<tr>
-					<th className={st.column}>Type</th>
-					<th className={st.column}>Amount</th>
-					<th className={st.column}>Currency</th>
-				</tr>
+		<Table>
+			<thead>
+				<Thead>
+					<TableTitle>Type</TableTitle>
+					<TableTitle>Amount</TableTitle>
+					<TableTitle>Currency</TableTitle>
+				</Thead>
 			</thead>
 			<tbody>
 				{transactions.map(({ id, type, amount, currency }) => (
@@ -22,7 +22,7 @@ export const TransactionHistory = ({ transactions }) => {
           />
         ))}
 			</tbody>
-		</table>
+		</Table>
 	);
 };
 

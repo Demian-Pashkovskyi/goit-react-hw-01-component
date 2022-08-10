@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import st from './TransactionHistory.module.css';
+import { TransactionRow ,TransactionCell } from './TransactionHistoryStyled';
 
 export const TransactionHistoryItems = ({ type, amount, currency }) => {
   return (
-    <tr className={st.row}>
-      <td className={st.cell}>{type}</td>
-      <td className={st.cell}>{amount}</td>
-      <td className={st.cell}>{currency}</td>
-    </tr>
+    <TransactionRow >
+      <TransactionCell>{type}</TransactionCell>
+      <TransactionCell>{amount}</TransactionCell>
+      <TransactionCell>{currency}</TransactionCell>
+    </TransactionRow>
   )
 }
 
